@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Array Methods Task</title>
+</head>
+<body>
+  <button onclick="function_one()">Button 1</button>
+  <button onclick="function_two()">Button 2</button>
+  <button onclick="function_three()">Button 3</button>
+  <button onclick="function_four()">Button 4</button>
+  <button onclick="function_five()">Button 5</button>
+
+  <script>
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function function_one() {
+      let arr = [];
+      for (let i = 0; i <= 100; i++) {
+        if (i % 3 !== 0) arr.push(i);
+      }
+      console.log("A: Numbers not divisible by 3:", arr);
+    }
+
+    function function_two() {
+      let arr = [];
+      for (let i = 0; i <= 100; i++) arr.push(i);
+      for (let i = 101; i <= 150; i++) arr.push(i);
+      console.log("B: Numbers 0–150:", arr);
+    }
+
+    function function_three() {
+      let arr = [];
+      for (let i = 0; i <= 100; i++) arr.push(i + 3);
+      console.log("C: Each number +3:", arr);
+    }
+
+    // ✅ D. Get members from index 20 to 40 (no slice)
+    function function_four() {
+      let arr = [];
+      for (let i = 0; i <= 150; i++) arr.push(i);
+
+      let arr2 = [];
+      for (let i = 20; i <= 40; i++) {
+        arr2.push(arr[i]); // manually collect numbers
+      }
+
+      console.log("D: Members from index 20 to 40:", arr2);
+    }
+
+    function function_five() {
+      let arr = [];
+      for (let i = 0; i <= 100; i++) arr.push(i);
+      shuffleArray(arr);
+      console.log("E1: Shuffled array:", arr);
+      arr.sort((a, b) => b - a);
+      console.log("E2: Sorted descending:", arr);
+    }
+  </script>
+</body>
+</html>

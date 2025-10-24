@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Get IP</title>
+</head>
+<body>
+  <button id="getIPButton" onclick="getIP()">Get IP</button>
+
+  <script>
+    function getIP() {
+
+      fetch("https://api.ipify.orgx/")
+        .then(response => response.text()) 
+        .then(ip => {
+          document.getElementById("getIPButton").textContent=ip
+        })
+        .catch(error => {
+          alert("Error fetching IP: " + error.message);
+        });
+    }
+  </script>
+</body>
+</html>
